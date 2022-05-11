@@ -12,5 +12,8 @@
 
   <body>
     <%= yield %>
+    <% if action_name != "index" %>
+      <p><%= link_to "Home", restaurants_path %></p>
+    <% end %>
   </body>
 </html>
