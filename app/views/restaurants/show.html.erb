@@ -6,8 +6,6 @@
   <li>Category: <%= @restaurant.category.capitalize %></li>
 </ul>
 
-<%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
-
 <h2>Reviews</h2>
 
 <ul class="list-group">
@@ -17,3 +15,13 @@
     </li>
   <% end %>
 </ul>
+
+<br>
+
+<h2>Leave a review</h2>
+
+<%= simple_form_for([@restaurant, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit "Leave review", class: "btn btn-primary" %>
+<% end %>
